@@ -14,6 +14,7 @@ import AudioControls from './components/ui/AudioControls.jsx';
 import BottomNavBar from './components/ui/BottomNavBar.jsx';
 const MoleculePopup = lazy(() => import('./components/ui/MoleculePopup.jsx'));
 const Glossary = lazy(() => import('./components/ui/Glossary.jsx'));
+const ConclusionsImpactStep = lazy(() => import('./components/workflow/ConclusionsImpactStep.jsx'));
 
 // Loader for Suspense
 const StepLoader = () => (
@@ -47,8 +48,7 @@ const CatalystWorkflowApp = () => {
   const [exampleMolecules, setExampleMolecules] = useState({ generation: [], filtered: [] });
   const audioRef = useRef(null);
 
-  const stepTitles = ['Video Introduction', 'Workflow Explanation', 'Catalysts Generation', 'Molecular Properties Prediction', 'GAP Analysis and Filtering', 'Binding Energy', 'Final Candidates'];
-
+  const stepTitles = ['Video Introduction', 'Workflow Explanation', 'Catalysts Generation', 'Molecular Properties Prediction', 'GAP Analysis and Filtering', 'Binding Energy', 'Final Candidates', 'Conclusions & Impact'];
   const audioMap = {
     0: null,
     1: 'audio/audio-WorkflowExplanationStep.mp3',
@@ -259,6 +259,7 @@ const CatalystWorkflowApp = () => {
       case 3: return moleculesWithGap.length > 0;
       case 4: return selectedTopK.length > 0;
       case 5: return finalCandidates.length > 0;
+      case 6: return true; // Aggiungi questo caso per permettere di andare alla tab Conclusions
       default: return false;
     }
   };
@@ -276,6 +277,7 @@ const CatalystWorkflowApp = () => {
       case 4: return <GapAnalysisStep sortedMoleculesForGap={sortedMoleculesForGap} selectedTopK={selectedTopK} />;
       case 5: return <BindingEnergyStep combinations={combinations} predictBindingEnergy={predictBindingEnergy} isPredictingBinding={isPredictingBinding} finalCandidates={finalCandidates} showConnections={showConnections} />;
       case 6: return <FinalCandidatesStep finalCandidates={finalCandidates} startNewAnalysis={startNewAnalysis} />;
+      case 7: return <ConclusionsImpactStep startNewAnalysis={startNewAnalysis} />;
       default: return null;
     }
   };
@@ -285,13 +287,13 @@ const CatalystWorkflowApp = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {particles.map(p => <div key={p.id} className="absolute w-2 h-2 bg-white rounded-full opacity-20" style={{ left: p.left, top: p.top, animation: `float ${p.duration} ease-in-out infinite`, animationDelay: p.delay }} />)}
       </div>
-      
+
       {!showStartOverlay && currentBlock > 0 && (
         <Suspense fallback={null}>
           <Glossary />
         </Suspense>
       )}
-      
+
       {!showStartOverlay && currentBlock !== 0 && (
         <AudioControls
           isMuted={isMuted}
@@ -300,33 +302,33 @@ const CatalystWorkflowApp = () => {
           showStartOverlay={showStartOverlay}
         />
       )}
-      
+
       <audio ref={audioRef} className="hidden" />
-      
+
       <div className="absolute -bottom-10 right-3 pointer-events-auto">
         <img src="images/nttdata-logo.png" alt="Logo" className="w-36 h-36 object-contain opacity-100" />
       </div>
-      
+
       <div className="h-full flex flex-col relative z-10 pb-20">
         <Suspense fallback={<StepLoader />}>
           {renderCurrentBlock()}
         </Suspense>
       </div>
-      
-      <BottomNavBar 
-        currentBlock={currentBlock} 
-        goToBlock={goToBlock} 
-        canGoForward={canGoForward()} 
-        stepTitles={stepTitles} 
-        showStartOverlay={showStartOverlay} 
+
+      <BottomNavBar
+        currentBlock={currentBlock}
+        goToBlock={goToBlock}
+        canGoForward={canGoForward()}
+        stepTitles={stepTitles}
+        showStartOverlay={showStartOverlay}
       />
-      
+
       {popupMolecule && (
         <Suspense fallback={null}>
           <MoleculePopup molecule={popupMolecule} setMolecule={setPopupMolecule} />
         </Suspense>
       )}
-      
+
       <style>{`
   @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
   @keyframes fadeIn{from{opacity:0}to{opacity:1}}

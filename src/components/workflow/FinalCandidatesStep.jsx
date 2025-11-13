@@ -15,21 +15,17 @@ const Molecule3DLoader = ({ size = 140 }) => (
 
 const FinalCandidatesStep = ({ finalCandidates, startNewAnalysis }) => {
   return (
-    <div className="flex-1 flex flex-col p-3 animate-fadeIn">
-      <div className="text-center mb-2">
-        <div className="flex items-center justify-center gap-3 mb-1">
-          <Search className="w-7 h-7 text-yellow-400 animate-pulse" />
-          <h3 className="text-3xl font-bold text-left text-white mb-2">Final Candidates</h3>
+    <div className="flex-1 flex items-center justify-center overflow-auto p-3 animate-fadeIn">
+      <div className="max-w-7xl w-full space-y-3">
+        <h3 className="text-3xl font-bold text-left text-white mb-2">Final Candidates</h3>
+
+        <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-xl p-3 border border-orange-500/30 shadow-lg mb-3">
+          <p className="text-gray-200 text-center text-base leading-relaxed">
+            The top {finalCandidates.length} catalyst-epoxide complexes with the <span className="text-yellow-400 font-semibold">strongest binding energy</span> are selected as <span className="text-orange-400 font-semibold">the most promising candidates</span> for laboratory validation. These will be experimentally tested to evaluate the CO₂-epoxide interaction and, if successful, the catalysts can be synthesized for practical application.
+          </p>
         </div>
-        <p className="text-yellow-200 text-base font-semibold">Top {finalCandidates.length} combinations with the strongest binding energy.</p>
-      </div>
-      <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-xl p-3 border border-orange-500/30 shadow-lg mb-3 mx-auto w-6xl max-w-7xl">
-        <p className="text-gray-200 text-center text-base leading-relaxed">
-          Based on <span className="text-yellow-400 font-semibold">binding energy</span>, the <span className="text-orange-400 font-semibold">most promising catalyst-epoxide complexes</span> are selected for laboratory validation. These candidates will be experimentally tested to evaluate the CO₂-epoxide interaction and, if successful, the catalysts can be synthesized for practical application.
-        </p>
-      </div>
-      <div className="flex-1 overflow-y-auto">
-        <div className="flex justify-center items-start gap-5 max-w-7xl mx-auto flex-nowrap">
+
+        <div className="flex justify-center items-start gap-2 flex-nowrap">
           {finalCandidates.map((combo, idx) => (
             <div
               key={combo.id}
@@ -57,14 +53,16 @@ const FinalCandidatesStep = ({ finalCandidates, startNewAnalysis }) => {
             </div>
           ))}
         </div>
-      </div>
-      <div className="text-center mt-2">
-        <button
-          onClick={startNewAnalysis}
-          className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white text-base font-bold py-2 px-5 rounded-xl transition-all transform hover:scale-110 shadow-lg"
-        >
-          Start New Analysis
-        </button>
+
+
+        <div className="text-center mt-2">
+          <button
+            onClick={startNewAnalysis}
+            className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white text-base font-bold py-2 px-5 rounded-xl transition-all transform hover:scale-110 shadow-lg"
+          >
+            Start New Analysis
+          </button>
+        </div>
       </div>
     </div>
   );
