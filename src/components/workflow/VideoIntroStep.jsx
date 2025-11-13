@@ -30,19 +30,32 @@ const VideoIntroStep = ({ onComplete, showStartOverlay, handleStartExperience })
 
             <div className="max-w-5xl w-full space-y-4">
                 <h1 className="text-2xl font-bold text-left text-white mb-4">
-                    Video Introduction
+                    Introduction
                 </h1>
 
-                <div className="bg-gradient-to-br from-slate-900/80 to-purple-900/80 backdrop-blur-xl rounded-2xl p-8 border-2 border-purple-400/50 shadow-2xl">
+                <div className="bg-gradient-to-br from-slate-900/80 to-purple-900/80 backdrop-blur-xl rounded-2xl p-8 border border-purple-400/50 shadow-2xl">
                     <div className="text-center space-y-4">
-                        <p className="text-xl leading-relaxed text-gray-200">
-                            Imagine you want to discover <span className="text-cyan-400 font-bold">new materials</span>. 
-                            You would start from existing ones and change their structure one at a time, testing each variation 
-                            to see if it has the desired properties. This is <span className="text-orange-400 font-bold">slow and expensive</span>. 
-                            Now, imagine if you had a tool that could optimize the entire process, accelerating the discovery 
-                            of new materials with desired properties. This is where <span className="text-purple-400 font-bold">AI comes in</span>.
-                        </p>
-                        
+                        <div className="text-xl leading-relaxed text-gray-200 space-y-4">
+                            <p>
+                                CO₂ can react with certain molecules and materials, allowing it to be <span className="text-cyan-400 font-bold">captured and stored</span> for later reuse. However, this reaction does not occur easily on its own.
+                            </p>
+
+                            <p>
+                                That’s where specialized molecules called
+                                <span className="text-green-400 font-bold"> catalysts</span> come into play: they accelerate the capture process and make it efficient.
+                            </p>
+
+                            <p>
+                                To discover new catalysts means you would start from existing ones and change their structure one at a time, testing each variation to see if it has the desired properties: 
+                                a <span className="text-orange-400 font-bold">slow and expensive</span> process.
+                            </p>
+
+                            <p>
+                                But this is where <span className="text-purple-400 font-bold">AI comes in</span>.
+                            </p>
+                        </div>
+
+
                         <button
                             onClick={onComplete}
                             className="bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 hover:from-purple-600 hover:via-pink-600 hover:to-cyan-600 text-white text-lg font-bold py-3 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-3 mx-auto mt-6"

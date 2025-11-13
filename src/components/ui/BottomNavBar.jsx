@@ -4,7 +4,7 @@ const BottomNavBar = ({ currentBlock, goToBlock, canGoForward, stepTitles, showS
     return (
         <div className={`absolute bottom-0 left-0 right-0 py-1 bg-gradient-to-t from-indigo-950/80 to-transparent transition-all ${showStartOverlay ? 'z-10 opacity-0 pointer-events-none' : 'z-50 opacity-100'}`}>
             <div className="flex flex-col items-center gap-3">
-                <div className="flex justify-center gap-3">
+                <div className="flex justify-center gap-3 mb-3">
                     <button onClick={() => currentBlock > 0 && goToBlock(currentBlock - 1)} disabled={currentBlock === 0} className="group bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 disabled:opacity-30 disabled:cursor-not-allowed text-white p-3 rounded-full shadow-lg transition-all transform hover:scale-110 disabled:transform-none">
                         <svg className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" /></svg>
                     </button>

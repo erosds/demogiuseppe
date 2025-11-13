@@ -34,13 +34,13 @@ const PropertyPredictionStep = ({ moleculesForPrediction, predictProperties, isP
               <p className="text-base text-purple-300">Candidates for prediction</p>
             </div>
             <div className="flex-1 overflow-auto">
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-5 gap-3">
                 {moleculesForPrediction.map((mol) => (
-                  <div key={mol.uniqueId} className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 backdrop-blur-xl p-2 rounded-xl border-2 border-purple-400/50 shadow-lg flex flex-col items-center justify-center h-[120px]">
+                  <div key={mol.uniqueId} className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 backdrop-blur-xl p-2 rounded-xl border border-purple-400/50 shadow-lg flex flex-col items-center justify-center h-[120px]">
                     <Suspense fallback={<Molecule3DLoader size={80} />}>
                       <MemoizedMolecule3DViewer size={80} xyz={mol.xyz} />
                     </Suspense>
-                    <p className="text-xl text-purple-200 mt-1 text-center font-semibold truncate w-full">{mol.name}</p>
+                    <p className="text-xs text-purple-200 mt-1 text-center font-semibold truncate w-full">{mol.name}</p>
                   </div>
                 ))}
               </div>
@@ -63,19 +63,15 @@ const PropertyPredictionStep = ({ moleculesForPrediction, predictProperties, isP
                   <div className={`absolute inset-0 bg-purple-500/50 blur-2xl rounded-full ${isPredicting ? 'animate-pulse' : ''}`} />
                 </div>
                 <img src="images/unimol-logo.png" alt="Unimol Model" className="h-32 mx-auto mb-3 object-contain" />
-                <p className="text-purple-200 text-xl font-medium mb-4">Molecular Properties Predictor</p>
-                <div className="bg-purple-900/30 rounded-lg p-3 mb-4">
-                  <p className="text-xl text-purple-300 mb-2">Predicts:</p>
-                  <div className="space-y-1">
-                    <p className="text-2xl text-pink-400 font-bold">HOMO Energy</p>
-                    <p className="text-2xl text-pink-400 font-bold">LUMO Energy</p>
-                  </div>
+                <div className="space-y-1 mb-6">
+                  <p className="text-xl text-pink-400 font-bold">HOMO Energy</p>
+                  <p className="text-xl text-pink-400 font-bold">LUMO Energy</p>
                 </div>
               </div>
               <button
                 onClick={predictProperties}
                 disabled={isPredicting || moleculesWithGap.length > 0}
-                className="w-64 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 disabled:opacity-50 text-white text-xl font-bold py-3 px-4 rounded-xl transition-all transform hover:scale-105 disabled:transform-none shadow-md relative z-10"
+                className="w-64 mb-3 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 disabled:opacity-50 text-white text-xl font-bold py-3 px-4 rounded-xl transition-all transform hover:scale-105 disabled:transform-none shadow-md relative z-10"
               >
                 {isPredicting ? (
                   <span className="flex items-center justify-center gap-3">
@@ -85,7 +81,7 @@ const PropertyPredictionStep = ({ moleculesForPrediction, predictProperties, isP
                 ) : moleculesWithGap.length > 0 ? (
                   'Predicted ✓'
                 ) : (
-                  'Predict Properties'
+                  'Predict'
                 )}
               </button>
             </div>

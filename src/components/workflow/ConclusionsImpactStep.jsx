@@ -62,7 +62,7 @@ const ConclusionsImpactStep = ({ startNewAnalysis }) => {
             {/* Grid 3 card con metriche */}
             <div className="grid grid-cols-3 gap-6 max-w-6xl mx-auto w-full mb-4">
                 {/* Card 1: Time Reduction */}
-                <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border-2 border-purple-400/50 shadow-lg hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105">
+                <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border border-purple-400/50 shadow-lg hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105">
                     <div className="flex items-center justify-center mb-4">
                         <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-3 rounded-full">
                             <Zap className="w-8 h-8 text-white" />
@@ -96,7 +96,7 @@ const ConclusionsImpactStep = ({ startNewAnalysis }) => {
                 </div>
 
                 {/* Card 2: Prediction Accuracy */}
-                <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border-2 border-cyan-400/50 shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105">
+                <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border border-cyan-400/50 shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105">
                     <div className="flex items-center justify-center mb-4">
                         <div className="bg-gradient-to-r from-cyan-500 to-blue-500 p-3 rounded-full">
                             <TrendingUp className="w-8 h-8 text-white" />
@@ -130,7 +130,7 @@ const ConclusionsImpactStep = ({ startNewAnalysis }) => {
                 </div>
 
                 {/* Card 3: Cost Savings */}
-                <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border-2 border-green-400/50 shadow-lg hover:shadow-green-500/50 transition-all duration-300 hover:scale-105">
+                <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border border-green-400/50 shadow-lg hover:shadow-green-500/50 transition-all duration-300 hover:scale-105">
                     <div className="flex items-center justify-center mb-4">
                         <div className="bg-gradient-to-r from-green-500 to-emerald-500 p-3 rounded-full">
                             <DollarSign className="w-8 h-8 text-white" />

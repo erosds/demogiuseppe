@@ -9,7 +9,7 @@ const Molecule3DLoader = ({ size = 140 }) => (
     style={{ width: size, height: size }}
     className="flex items-center justify-center bg-gray-800/30 rounded-lg"
   >
-    <div className="w-5 h-5 border-2 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
+    <div className="w-5 h-5 border border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
 
@@ -29,10 +29,10 @@ const FinalCandidatesStep = ({ finalCandidates, startNewAnalysis }) => {
           {finalCandidates.map((combo, idx) => (
             <div
               key={combo.id}
-              className="bg-gradient-to-br from-yellow-900/40 to-orange-900/40 backdrop-blur-xl p-4 rounded-xl border-2 border-yellow-400/50 shadow-lg hover:shadow-yellow-500/50 transform hover:scale-105 transition-all duration-500 relative flex-shrink-0"
+              className="bg-gradient-to-br from-yellow-900/40 to-orange-900/40 backdrop-blur-xl p-4 rounded-xl border border-yellow-400/50 shadow-lg hover:shadow-yellow-500/50 transform hover:scale-105 transition-all duration-500 relative flex-shrink-0"
               style={{ animation: `fadeInUp 0.5s ease-out ${idx * 0.2}s both`, width: '340px', maxWidth: '340px' }}
             >
-              {idx === 0 && <div className="absolute top-1 right-1 bg-gradient-to-br from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg flex items-center gap-2 animate-pulse z-10"><Award className="w-5 h-5" />Top Candidate</div>}
+              {idx === 0 && <div className="absolute top-1 right-1 bg-gradient-to-br from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-lg text-sm font-bold shadow-lg flex items-center gap-2 animate-pulse z-10"><Award className="w-5 h-5" />Top Candidate</div>}
               <div className="flex items-center justify-center gap-3 mb-3">
                 <Suspense fallback={<Molecule3DLoader size={140} />}>
                   <MemoizedMolecule3DViewer size={140} xyz={combo.catalyst.xyz} />
@@ -48,20 +48,10 @@ const FinalCandidatesStep = ({ finalCandidates, startNewAnalysis }) => {
                 <div className="flex justify-between items-center"><span className="text-sm text-gray-400">Binding Energy:</span><span className="text-lg text-cyan-400 font-bold">{combo.bindingEnergy} eV</span></div>
               </div>
               <div className="mt-3 flex items-center justify-center gap-2 text-yellow-400">
-                <FlaskConical className="w-6 h-6" /><span className="text-sm font-bold">READY FOR LAB ANALYSIS AND SYNTHESIS</span>
+                <FlaskConical className="w-6 h-6" /><span className="text-sm font-bold">READY FOR LAB TESTS</span>
               </div>
             </div>
           ))}
-        </div>
-
-
-        <div className="text-center mt-2">
-          <button
-            onClick={startNewAnalysis}
-            className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white text-base font-bold py-2 px-5 rounded-xl transition-all transform hover:scale-110 shadow-lg"
-          >
-            Start New Analysis
-          </button>
         </div>
       </div>
     </div>
