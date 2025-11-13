@@ -132,7 +132,7 @@ const BindingEnergyStep = ({ combinations, predictBindingEnergy, isPredictingBin
               <button
                 onClick={predictBindingEnergy}
                 disabled={isPredictingBinding || finalCandidates.length > 0}
-                className="w-64 bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 hover:from-orange-600 hover:via-amber-600 hover:to-yellow-600 disabled:opacity-50 text-white text-xl font-bold py-3 px-4 rounded-xl transition-all transform hover:scale-105 disabled:transform-none shadow-md relative z-10"
+                className="w-64 bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 hover:from-orange-600 hover:via-amber-600 hover:to-yellow-600 disabled:opacity-50 text-white text-xl font-bold py-3 px-4 rounded-xl transition-all transform  disabled:transform-none shadow-md relative z-10"
               >
                 {isPredictingBinding ? (
                   <span className="flex items-center justify-center gap-3">

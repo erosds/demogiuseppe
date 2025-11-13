@@ -8,13 +8,13 @@ const Molecule3DLoader = ({ size = 90 }) => (
     style={{ width: size, height: size }}
     className="flex items-center justify-center bg-gray-800/30 rounded-lg"
   >
-    <div className="w-4 h-4 border-2 border-green-400 border-t-transparent rounded-full animate-spin"></div>
+    <div className="w-4 h-4 border border-green-400 border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
 
 const GapAnalysisStep = ({ sortedMoleculesForGap, selectedTopK }) => {
   return (
-    <div className="flex-1 flex items-center justify-center overflow-hidden p-2 animate-fadeIn min-h-0">
+    <div className="flex-1 flex items-center justify-center overflow-hidden p-3 animate-fadeIn min-h-0">
       <div className="max-w-6xl w-full space-y-3">
         <h3 className="text-3xl font-bold text-left mb-2 text-white">
           GAP Analysis and Filtering
@@ -26,13 +26,13 @@ const GapAnalysisStep = ({ sortedMoleculesForGap, selectedTopK }) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 justify-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 justify-items-center">
           {sortedMoleculesForGap.map((mol, idx) => {
             const isSelected = selectedTopK.includes(mol.uniqueId);
             return (
               <div
                 key={mol.uniqueId}
-                className={`relative bg-gradient-to-br backdrop-blur-xl p-2 rounded-xl border-2 transition-all duration-500 w-full max-w-[140px] h-[180px] flex flex-col items-center ${isSelected ? 'from-green-900/50 to-emerald-900/50 border-green-400 shadow-lg shadow-green-500/50 scale-105' : 'from-red-900/30 to-gray-900/30 border-red-400/50 opacity-70'}`}
+                className={`relative bg-gradient-to-br backdrop-blur-xl p-2 rounded-xl border transition-all duration-500 w-full max-w-[140px] h-[180px] flex flex-col items-center ${isSelected ? 'from-green-900/50 to-emerald-900/50 border-green-400 shadow-lg shadow-green-500/30' : 'from-red-900/30 to-gray-900/30 border-red-400/50 opacity-70'}`}
                 style={{ animation: `fadeInUp 0.3s ease-out ${idx * 0.05}s both` }}
               >
                 {isSelected ? <div className="absolute top-1 right-1 w-5 h-5 bg-emerald-500 rounded-full flex items-center justify-center z-10"><span className="text-white text-sm font-bold">✓</span></div> : <div className="absolute top-1 right-1 w-5 h-5 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center z-10"><span className="text-white text-sm font-bold">✕</span></div>}

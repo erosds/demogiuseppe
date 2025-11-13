@@ -25,12 +25,12 @@ const FinalCandidatesStep = ({ finalCandidates, startNewAnalysis }) => {
           </p>
         </div>
 
-        <div className="flex justify-center items-start gap-2 flex-nowrap">
+        <div className="w-full max-w-7xl mx-auto flex justify-center items-start gap-16 flex-nowrap">
           {finalCandidates.map((combo, idx) => (
             <div
               key={combo.id}
-              className="bg-gradient-to-br from-yellow-900/40 to-orange-900/40 backdrop-blur-xl p-4 rounded-xl border border-yellow-400/50 shadow-lg hover:shadow-yellow-500/50 transform hover:scale-105 transition-all duration-500 relative flex-shrink-0"
-              style={{ animation: `fadeInUp 0.5s ease-out ${idx * 0.2}s both`, width: '340px', maxWidth: '340px' }}
+              className="w-full max-w-sm bg-gradient-to-br from-yellow-900/40 to-orange-900/40 backdrop-blur-xl p-4 rounded-xl border border-yellow-400/50 shadow-lg hover:shadow-yellow-500/50 transform  transition-all duration-500 relative flex-shrink-0"
+              style={{ animation: `fadeInUp 0.5s ease-out ${idx * 0.2}s both` }}
             >
               {idx === 0 && <div className="absolute top-1 right-1 bg-gradient-to-br from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-lg text-sm font-bold shadow-lg flex items-center gap-2 animate-pulse z-10"><Award className="w-5 h-5" />Top Candidate</div>}
               <div className="flex items-center justify-center gap-3 mb-3">
@@ -43,9 +43,11 @@ const FinalCandidatesStep = ({ finalCandidates, startNewAnalysis }) => {
                 </Suspense>
               </div>
               <div className="text-center mb-3"><p className="text-base text-yellow-100 font-semibold truncate">{combo.catalyst.name} + {combo.epoxide.name}</p></div>
-              <div className="space-y-3 bg-slate-900/70 rounded-xl p-3 border border-slate-700">
-                <div className="flex justify-between items-center"><span className="text-sm text-gray-400">Catalyst GAP:</span><span className="text-lg text-white font-bold">{combo.catalyst.gap}</span></div>
-                <div className="flex justify-between items-center"><span className="text-sm text-gray-400">Binding Energy:</span><span className="text-lg text-cyan-400 font-bold">{combo.bindingEnergy} eV</span></div>
+
+              <div className="w-full max-w-sm bg-gradient-to-br from-yellow-900/10 to-orange-900/10 backdrop-blur-xl p-3 rounded-xl border border-yellow-400/30 transform  transition-all duration-500 relative flex-shrink-0"
+              >
+                <div className="flex justify-between items-center"><span className="text-sm text-gray-100">Catalyst GAP:</span><span className="text-lg text-white font-bold">{combo.catalyst.gap}</span></div>
+                <div className="flex justify-between items-center"><span className="text-sm text-gray-100">Binding Energy:</span><span className="text-lg text-cyan-400 font-bold">{combo.bindingEnergy} eV</span></div>
               </div>
               <div className="mt-3 flex items-center justify-center gap-2 text-yellow-400">
                 <FlaskConical className="w-6 h-6" /><span className="text-sm font-bold">READY FOR LAB TESTS</span>

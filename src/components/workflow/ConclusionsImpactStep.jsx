@@ -22,7 +22,7 @@ const ConclusionsImpactStep = ({ startNewAnalysis }) => {
         };
 
         const startTime = performance.now();
-        const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+        const easeOutQuart = (t) => 1 - Math.pow(1 - t, 3);
 
         const animate = (t) => {
             const elapsed = t - startTime;
@@ -30,7 +30,7 @@ const ConclusionsImpactStep = ({ startNewAnalysis }) => {
             const eased = easeOutQuart(progress);
 
             setCounters({
-                timeReduction: Math.floor(targetValues.timeReduction * eased),
+                timeReduction: (targetValues.timeReduction * eased).toFixed(1),
                 accuracy: Math.floor(targetValues.accuracy * eased),
                 costSavings: Math.floor(targetValues.costSavings * eased),
             });
@@ -52,17 +52,17 @@ const ConclusionsImpactStep = ({ startNewAnalysis }) => {
             {/* Riquadro testuale conclusioni */}
             <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-xl p-4 border border-purple-500/30 shadow-lg mb-4 mx-auto w-full max-w-6xl">
                 <p className="text-gray-200 text-center text-base leading-relaxed mb-3">
-                    This project demonstrated how <span className="text-purple-400 font-semibold">AI and Machine Learning</span> can dramatically accelerate the discovery of metal catalysts for CO₂ conversion, reducing time and costs while maintaining high accuracy. We can rapidly screen thousands of candidates and identify the most promising ones for laboratory validation.
+                    This project demonstrated how <span className="text-purple-400 font-semibold">AI and Machine Learning</span> can dramatically accelerate the discovery of metal catalysts for CO₂ conversion, reducing time and costs while maintaining high accuracy. We rapidly screened thousands of candidates and identified the most promising ones for laboratory validation.
                 </p>
                 <p className="text-gray-200 text-center text-base leading-relaxed">
-                    This approach is not limited to catalyst discovery. <span className="text-green-400 font-semibold">Major industrial sectors</span> including pharmaceuticals, materials science, and energy are already adopting similar AI-driven methodologies to revolutionize their R&D processes, achieving breakthrough results.
+                    This approach is not limited to catalyst discovery. <span className="text-green-400 font-semibold">Major industrial sectors</span> including materials science, pharmaceuticals, and energy are already adopting similar AI-driven methodologies to revolutionize their R&D processes, achieving breakthrough results.
                 </p>
             </div>
 
             {/* Grid 3 card con metriche */}
             <div className="grid grid-cols-3 gap-6 max-w-6xl mx-auto w-full mb-4">
                 {/* Card 1: Time Reduction */}
-                <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border border-purple-400/50 shadow-lg hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105">
+                <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border border-purple-400/50 shadow-lg hover:shadow-purple-500/50 transition-all duration-300">
                     <div className="flex items-center justify-center mb-4">
                         <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-3 rounded-full">
                             <Zap className="w-8 h-8 text-white" />
@@ -96,7 +96,7 @@ const ConclusionsImpactStep = ({ startNewAnalysis }) => {
                 </div>
 
                 {/* Card 2: Prediction Accuracy */}
-                <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border border-cyan-400/50 shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105">
+                <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border border-cyan-400/50 shadow-lg hover:shadow-cyan-500/50 transition-all duration-300">
                     <div className="flex items-center justify-center mb-4">
                         <div className="bg-gradient-to-r from-cyan-500 to-blue-500 p-3 rounded-full">
                             <TrendingUp className="w-8 h-8 text-white" />
@@ -130,7 +130,7 @@ const ConclusionsImpactStep = ({ startNewAnalysis }) => {
                 </div>
 
                 {/* Card 3: Cost Savings */}
-                <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border border-green-400/50 shadow-lg hover:shadow-green-500/50 transition-all duration-300 hover:scale-105">
+                <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border border-green-400/50 shadow-lg hover:shadow-green-500/50 transition-all duration-300">
                     <div className="flex items-center justify-center mb-4">
                         <div className="bg-gradient-to-r from-green-500 to-emerald-500 p-3 rounded-full">
                             <DollarSign className="w-8 h-8 text-white" />

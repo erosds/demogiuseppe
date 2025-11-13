@@ -156,8 +156,14 @@ const CatalystWorkflowApp = () => {
 
   const goToBlock = (blockIndex) => {
     setCurrentBlock(blockIndex);
-    setShowConnections(false);
-    setTimeout(() => setShowConnections(true), 500);
+
+    // Mostra subito le frecce per PropertyPrediction e BindingEnergy
+    if (blockIndex === 3 || blockIndex === 5) {
+      setShowConnections(true);
+    } else {
+      setShowConnections(false);
+      setTimeout(() => setShowConnections(true), 500);
+    }
 
     if (blockIndex === 0 && audioRef.current) {
       audioRef.current.pause();
@@ -253,7 +259,7 @@ const CatalystWorkflowApp = () => {
 
   const canGoForward = () => {
     switch (currentBlock) {
-      case 0: return true;
+      case 0: return false;
       case 1: return true;
       case 2: return generatedMolecules.length > 0;
       case 3: return moleculesWithGap.length > 0;
@@ -306,7 +312,7 @@ const CatalystWorkflowApp = () => {
       <audio ref={audioRef} className="hidden" />
 
       <div className="absolute -bottom-10 right-3 pointer-events-auto">
-        <img src="images/nttdata-logo.png" alt="Logo" className="w-36 h-36 object-contain opacity-100" />
+        <img src="images/nttdata-logo.png" alt="Logo" className="w-32 h-32 object-contain opacity-100 mb-1 mr-3" />
       </div>
 
       <div className="h-full flex flex-col relative z-10 pb-20">

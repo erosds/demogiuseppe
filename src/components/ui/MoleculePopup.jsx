@@ -11,7 +11,7 @@ const MoleculePopup = ({ molecule, setMolecule }) => {
                 <div className="flex justify-center">
                     <MemoizedMolecule3DViewer size={Math.min(350, window.innerWidth * 0.7)} xyz={molecule.xyz} />
                 </div>
-                <button onClick={() => setMolecule(null)} className="mt-2 w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white text-lg font-bold py-1.5 px-3 rounded-xl transition-all transform hover:scale-105 shadow-md">
+                <button onClick={() => setMolecule(null)} className="mt-2 w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white text-lg font-bold py-1.5 px-3 rounded-xl transition-all transform  shadow-md">
                     Close
                 </button>
             </div>

@@ -26,7 +26,7 @@ const WorkflowExplanationStep = ({ exampleMolecules }) => {
                 </div>
                 <div className="flex items-stretch gap-4 h-[350px]">
                     {/* Molecule Generation */}
-                    <div className="flex-1 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 backdrop-blur-xl rounded-xl p-4 border border-cyan-500/30 shadow-lg hover:shadow-cyan-500/50 transition-all duration-500 hover:scale-105 flex flex-col">
+                    <div className="flex-1 bg-gradient-to-br from-cyan-900/40 to-blue-900/40 backdrop-blur-xl rounded-xl p-4 border border-cyan-500/30 shadow-lg hover:shadow-cyan-500/50 transition-all duration-500  flex flex-col">
                         <div className="text-center p-2 bg-blue-900/30 rounded-lg border border-blue-500/30">
                             <p className="text-blue-300 font-bold text-lg">Generate millions of molecules</p>
                         </div>
@@ -48,7 +48,7 @@ const WorkflowExplanationStep = ({ exampleMolecules }) => {
                     <div className="flex flex-col items-center justify-center"><ArrowRight className="w-12 h-12 text-cyan-400" /></div>
 
                     {/* Filtering */}
-                    <div className="flex-1 bg-gradient-to-br from-purple-900/40 to-pink-900/40 backdrop-blur-xl rounded-xl p-4 border border-purple-500/30 shadow-lg hover:shadow-purple-500/50 transition-all duration-500 hover:scale-105 flex flex-col">
+                    <div className="flex-1 bg-gradient-to-br from-purple-900/40 to-pink-900/40 backdrop-blur-xl rounded-xl p-4 border border-purple-500/30 shadow-lg hover:shadow-purple-500/50 transition-all duration-500  flex flex-col">
                         <div className="text-center p-2 bg-purple-900/30 rounded-lg border border-purple-500/30">
                             <p className="text-purple-300 font-bold text-lg">Predict properties and filter out</p>
                         </div>
@@ -72,7 +72,7 @@ const WorkflowExplanationStep = ({ exampleMolecules }) => {
                     <div className="flex flex-col items-center justify-center"><ArrowRight className="w-12 h-12 text-purple-400" /></div>
 
                     {/* Analysis */}
-                    <div className="flex-1 bg-gradient-to-br from-green-900/40 to-emerald-900/40 backdrop-blur-xl rounded-xl p-4 border border-green-500/30 shadow-lg hover:shadow-green-500/50 transition-all duration-500 hover:scale-105 flex flex-col">
+                    <div className="flex-1 bg-gradient-to-br from-green-900/40 to-emerald-900/40 backdrop-blur-xl rounded-xl p-4 border border-green-500/30 shadow-lg hover:shadow-green-500/50 transition-all duration-500  flex flex-col">
                         <div className="text-center p-2 bg-green-900/30 rounded-lg border border-green-500/30">
                             <p className="text-green-300 font-bold text-lg">Analyze promising molecules</p>
                         </div>

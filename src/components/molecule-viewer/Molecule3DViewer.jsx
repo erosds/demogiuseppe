@@ -175,7 +175,7 @@ const Molecule3DViewer = ({ size = 100, rotation = true, onClick, xyz, highlight
   return (
     <div
       onClick={onClick}
-      className="cursor-pointer transition-transform hover:scale-105 relative bg-transparent"
+      className="transition-transform  relative bg-transparent"
       style={{ width: size, height: size }}
     >
       <div

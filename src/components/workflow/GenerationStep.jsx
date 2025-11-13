@@ -39,7 +39,7 @@ const GenerationStep = ({
           <div className="flex gap-4">
 
             {/* Combinatorial Generation */}
-            <div className="w-[260px] bg-gradient-to-br from-cyan-900/40 to-blue-900/40 backdrop-blur-xl rounded-xl p-2 border border-cyan-500/30 shadow-lg hover:shadow-cyan-500/50 transition-all duration-500 hover:scale-105 flex flex-col">
+            <div className="w-[260px] bg-gradient-to-br from-cyan-900/40 to-blue-900/40 backdrop-blur-xl rounded-xl p-2 border border-cyan-500/30 shadow-lg hover:shadow-cyan-500/50 transition-all duration-500  flex flex-col">
               <div className="flex-grow">
                 <div className="text-center mb-1">
                   <h2 className="text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-1">
@@ -51,7 +51,7 @@ const GenerationStep = ({
                     <h3 className="text-sm font-semibold text-blue-300 mb-1 text-center">Available Metals</h3>
                     <div className="flex gap-1 justify-center">
                       {selectionPreviews.metals.map(metal => (
-                        <div key={metal.name} className="p-1 rounded-lg border border-gray-600 bg-gray-800/30 flex flex-col items-center justify-center w-[90px] h-[90px] overflow-hidden transition-all duration-300 hover:border-blue-500/50 hover:scale-105">
+                        <div key={metal.name} className="p-1 rounded-lg border border-gray-600 bg-gray-800/30 flex flex-col items-center justify-center w-[90px] h-[90px] overflow-hidden transition-all duration-300 hover:border-blue-500/50 ">
                           <Suspense fallback={<Molecule3DLoader size={65} />}>
                             <MemoizedMolecule3DViewer size={65} xyz={metal.xyz} />
                           </Suspense>
@@ -64,7 +64,7 @@ const GenerationStep = ({
                     <h3 className="text-sm font-semibold text-green-300 mb-1 text-center">Available Substituents</h3>
                     <div className="flex gap-1 justify-center">
                       {selectionPreviews.substituents.map(sub => (
-                        <div key={sub.name} className="p-1 rounded-lg border border-gray-600 bg-gray-800/30 flex flex-col items-center justify-center w-[90px] h-[90px] overflow-hidden transition-all duration-300 hover:border-green-500/50 hover:scale-105">
+                        <div key={sub.name} className="p-1 rounded-lg border border-gray-600 bg-gray-800/30 flex flex-col items-center justify-center w-[90px] h-[90px] overflow-hidden transition-all duration-300 hover:border-green-500/50 ">
                           <Suspense fallback={<Molecule3DLoader size={65} />}>
                             <MemoizedMolecule3DViewer size={65} xyz={sub.xyz} />
                           </Suspense>
@@ -77,7 +77,7 @@ const GenerationStep = ({
                     <h3 className="text-sm font-semibold text-purple-300 mb-1 text-center">Available Base Structures</h3>
                     <div className="flex gap-1 justify-center">
                       {selectionPreviews.structures.map(struct => (
-                        <div key={struct.name} className="p-1 rounded-lg border border-gray-600 bg-gray-800/30 flex flex-col items-center justify-center w-[90px] h-[90px] overflow-hidden transition-all duration-300 hover:border-purple-500/50 hover:scale-105">
+                        <div key={struct.name} className="p-1 rounded-lg border border-gray-600 bg-gray-800/30 flex flex-col items-center justify-center w-[90px] h-[90px] overflow-hidden transition-all duration-300 hover:border-purple-500/50 ">
                           <Suspense fallback={<Molecule3DLoader size={65} />}>
                             <MemoizedMolecule3DViewer size={65} xyz={struct.xyz} />
                           </Suspense>
@@ -91,7 +91,7 @@ const GenerationStep = ({
               <button
                 onClick={() => generateMolecules(true)}
                 disabled={isGenerating}
-                className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 disabled:opacity-50 text-white text-base font-bold py-2 px-2 rounded-xl transition-all transform hover:scale-105 disabled:transform-none shadow-md hover:shadow-lg mt-2"
+                className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 disabled:opacity-50 text-white text-base font-bold py-2 px-2 rounded-xl transition-all transform  disabled:transform-none shadow-md hover:shadow-lg mt-2"
               >
                 {isGenerating && generationMode === 'combinatorial' ? (
                   <span className="flex items-center justify-center gap-3">
@@ -103,7 +103,7 @@ const GenerationStep = ({
             </div>
 
             {/* AI Generation */}
-            <div className=" w-[260px] bg-gradient-to-br from-cyan-900/40 to-blue-900/40 backdrop-blur-xl rounded-xl p-2 border border-cyan-500/30 shadow-lg hover:shadow-cyan-500/50 transition-all duration-500 hover:scale-105 flex flex-col relative">
+            <div className=" w-[260px] bg-gradient-to-br from-cyan-900/40 to-blue-900/40 backdrop-blur-xl rounded-xl p-2 border border-cyan-500/30 shadow-lg hover:shadow-cyan-500/50 transition-all duration-500  flex flex-col relative">
               <div
                 className="absolute top-2 right-2 z-10"
                 onMouseEnter={() => setShowAITooltip(true)}
@@ -141,7 +141,7 @@ const GenerationStep = ({
               <button
                 onClick={() => generateMolecules(false)}
                 disabled={isGenerating}
-                className="w-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 hover:from-cyan-600 hover:via-blue-600 hover:to-purple-600 disabled:opacity-50 text-white text-base font-bold py-2 px-2 rounded-xl transition-all transform hover:scale-105 disabled:transform-none shadow-md hover:shadow-lg mt-2"
+                className="w-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 hover:from-cyan-600 hover:via-blue-600 hover:to-purple-600 disabled:opacity-50 text-white text-base font-bold py-2 px-2 rounded-xl transition-all transform  disabled:transform-none shadow-md hover:shadow-lg mt-2"
               >
                 {isGenerating && generationMode === 'AI' ? (
                   <span className="flex items-center justify-center gap-3">

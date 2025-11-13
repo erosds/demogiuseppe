@@ -24,7 +24,7 @@ const Glossary = () => {
     >
       <div className="relative">
         <div className="bg-gradient-to-br from-purple-600/80 to-pink-600/80 backdrop-blur-xl rounded-full p-3 border-2 border-purple-400/50 shadow-lg hover:scale-110 transition-transform cursor-pointer">
-          <Info className="w-6 h-6 text-white" />
+          <Info className="w-5 h-5 text-white" />
         </div>
         
         {isVisible && (

@@ -31,7 +31,6 @@ const PropertyPredictionStep = ({ moleculesForPrediction, predictProperties, isP
           <div className="flex-1 bg-gradient-to-br from-purple-900/40 to-pink-900/40 backdrop-blur-xl rounded-xl p-4 border border-purple-500/30 shadow-lg hover:shadow-purple-500/50 transition-all duration-500 flex flex-col">
             <div className="text-center mb-3">
               <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-1">Generated Molecules</h3>
-              <p className="text-base text-purple-300">Candidates for prediction</p>
             </div>
             <div className="flex-1 overflow-auto">
               <div className="grid grid-cols-5 gap-3">
@@ -71,7 +70,7 @@ const PropertyPredictionStep = ({ moleculesForPrediction, predictProperties, isP
               <button
                 onClick={predictProperties}
                 disabled={isPredicting || moleculesWithGap.length > 0}
-                className="w-64 mb-3 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 disabled:opacity-50 text-white text-xl font-bold py-3 px-4 rounded-xl transition-all transform hover:scale-105 disabled:transform-none shadow-md relative z-10"
+                className="w-64 mb-3 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 disabled:opacity-50 text-white text-xl font-bold py-3 px-4 rounded-xl transition-all transform  disabled:transform-none shadow-md relative z-10"
               >
                 {isPredicting ? (
                   <span className="flex items-center justify-center gap-3">
