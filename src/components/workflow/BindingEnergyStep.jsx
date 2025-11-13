@@ -48,9 +48,9 @@ const BindingEnergyStep = ({ combinations, predictBindingEnergy, isPredictingBin
 
   return (
     <div className="flex-1 flex flex-col items-center justify-around p-3 animate-fadeIn relative">
-      <h2 className="text-lg font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400 mb-2">
-        Binding Energy Prediction
-      </h2>
+      <h3 className="text-3xl font-bold text-left text-white mb-2">
+    Binding Energy Prediction
+</h3>
       <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-xl p-2 border border-orange-500/30 shadow-lg mb-2 w-full max-w-6xl">
         <p className="text-gray-200 text-center text-base leading-relaxed">
           At this stage, after analyzing the obtained gaps, the catalysts are chemically combined with the epoxides by coordinating the oxygen of the epoxide with the metal of the catalyst. Then the <span className="text-orange-400 font-semibold">UMA model by Meta</span> calculates <span className="text-amber-400 font-semibold">binding energy</span> for catalyst–epoxide complexes, a crucial property for evaluating their interaction.

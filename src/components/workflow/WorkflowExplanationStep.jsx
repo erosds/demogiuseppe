@@ -4,8 +4,8 @@ import { Play, ArrowRight, X, Check } from 'lucide-react';
 const MemoizedMolecule3DViewer = lazy(() => import('../molecule-viewer/Molecule3DViewer'));
 
 const Molecule3DLoader = ({ size = 80 }) => (
-    <div 
-        style={{ width: size, height: size }} 
+    <div
+        style={{ width: size, height: size }}
         className="flex items-center justify-center bg-gray-800/30 rounded-lg"
     >
         <div className="w-4 h-4 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
@@ -16,9 +16,9 @@ const WorkflowExplanationStep = ({ exampleMolecules }) => {
     return (
         <div className="flex-1 flex items-center justify-center overflow-auto p-3 animate-fadeIn">
             <div className="max-w-6xl w-full space-y-4">
-                <h1 className="text-lg font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 animate-pulse">
+                <h3 className="text-3xl font-bold text-left mb-4 text-white">
                     Workflow Explanation
-                </h1>
+                </h3>
                 <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-xl p-4 border border-cyan-500/30 shadow-lg mb-6">
                     <p className="text-gray-200 text-center text-base leading-relaxed">
                         In this workflow, <span className="text-green-400 font-semibold">Machine Learning</span> is employed to significantly accelerate the catalysts discovery process for CO2 catalytic conversion. Starting from a large pool of generated molecules, ML models are used to filter promising candidates based on predicted properties, thereby reducing the need for computationally expensive traditional molecular simulations. The most promising molecules are then analyzed in detail.

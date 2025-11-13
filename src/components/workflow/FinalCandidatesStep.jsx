@@ -5,8 +5,8 @@ import { Search, Award, FlaskConical } from 'lucide-react';
 const MemoizedMolecule3DViewer = lazy(() => import('../molecule-viewer/Molecule3DViewer'));
 
 const Molecule3DLoader = ({ size = 140 }) => (
-  <div 
-    style={{ width: size, height: size }} 
+  <div
+    style={{ width: size, height: size }}
     className="flex items-center justify-center bg-gray-800/30 rounded-lg"
   >
     <div className="w-5 h-5 border-2 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
@@ -19,7 +19,7 @@ const FinalCandidatesStep = ({ finalCandidates, startNewAnalysis }) => {
       <div className="text-center mb-2">
         <div className="flex items-center justify-center gap-3 mb-1">
           <Search className="w-7 h-7 text-yellow-400 animate-pulse" />
-          <h2 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400">Final Candidates</h2>
+          <h3 className="text-3xl font-bold text-left text-white mb-2">Final Candidates</h3>
         </div>
         <p className="text-yellow-200 text-base font-semibold">Top {finalCandidates.length} combinations with the strongest binding energy.</p>
       </div>

@@ -4,8 +4,8 @@ import React, { lazy, Suspense } from 'react';
 const MemoizedMolecule3DViewer = lazy(() => import('../molecule-viewer/Molecule3DViewer'));
 
 const Molecule3DLoader = ({ size = 90 }) => (
-  <div 
-    style={{ width: size, height: size }} 
+  <div
+    style={{ width: size, height: size }}
     className="flex items-center justify-center bg-gray-800/30 rounded-lg"
   >
     <div className="w-4 h-4 border-2 border-green-400 border-t-transparent rounded-full animate-spin"></div>
@@ -16,9 +16,9 @@ const GapAnalysisStep = ({ sortedMoleculesForGap, selectedTopK }) => {
   return (
     <div className="flex-1 flex flex-col p-3 animate-fadeIn">
       <div className="flex justify-center items-center mb-2 relative">
-        <h2 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400">
+        <h3 className="text-3xl font-bold text-left text-white mb-2">
           GAP Analysis and Filtering
-        </h2>
+        </h3>
       </div>
       <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-xl p-3 border border-green-500/30 shadow-lg mb-3 mx-auto max-w-5xl">
         <p className="text-gray-200 text-center text-base leading-relaxed">

@@ -4,8 +4,8 @@ import { Cpu, HelpCircle } from 'lucide-react';
 const MemoizedMolecule3DViewer = lazy(() => import('../molecule-viewer/Molecule3DViewer.jsx'));
 
 const Molecule3DLoader = ({ size = 65 }) => (
-  <div 
-    style={{ width: size, height: size }} 
+  <div
+    style={{ width: size, height: size }}
     className="flex items-center justify-center bg-gray-800/30 rounded-lg"
   >
     <div className="w-3 h-3 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
@@ -23,9 +23,9 @@ const GenerationStep = ({
   return (
     <div className="flex-1 flex items-center justify-center overflow-auto p-3 animate-fadeIn">
       <div className="max-w-5xl w-full space-y-2">
-        <h1 className="text-lg font-bold text-center mb-2 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 animate-pulse">
+        <h3 className="text-3xl font-bold text-left mb-2 text-white">
           Catalysts Generation
-        </h1>
+        </h3>
 
         <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-xl p-3 border border-cyan-500/30 shadow-lg mb-3">
           <p className="text-gray-200 text-center text-base leading-relaxed">
@@ -102,14 +102,14 @@ const GenerationStep = ({
 
           {/* AI Generation */}
           <div className="bg-gradient-to-br from-cyan-900/40 to-blue-900/40 backdrop-blur-xl rounded-xl p-2 border border-cyan-500/30 shadow-lg hover:shadow-cyan-500/50 transition-all duration-500 hover:scale-105 flex flex-col relative">
-            <div 
+            <div
               className="absolute top-2 right-2 z-10"
               onMouseEnter={() => setShowAITooltip(true)}
               onMouseLeave={() => setShowAITooltip(false)}
             >
               <div className="relative">
                 <HelpCircle className="w-5 h-5 text-cyan-400 cursor-help hover:text-cyan-300 transition-colors" />
-                
+
                 {showAITooltip && (
                   <div className="absolute top-0 right-7 w-64 bg-gradient-to-br from-slate-900/98 to-cyan-900/98 backdrop-blur-xl rounded-lg p-3 border border-cyan-400/50 shadow-2xl animate-fadeIn">
                     <p className="text-xs text-gray-200 leading-relaxed">

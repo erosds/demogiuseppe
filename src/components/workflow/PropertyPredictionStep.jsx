@@ -1,12 +1,12 @@
 // src/components/workflow/PropertyPredictionStep.jsx
 import React, { lazy, Suspense } from 'react';
-import { ArrowDown } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const MemoizedMolecule3DViewer = lazy(() => import('../molecule-viewer/Molecule3DViewer'));
 
-const Molecule3DLoader = ({ size = 100 }) => (
-  <div 
-    style={{ width: size, height: size }} 
+const Molecule3DLoader = ({ size = 80 }) => (
+  <div
+    style={{ width: size, height: size }}
     className="flex items-center justify-center bg-gray-800/30 rounded-lg"
   >
     <div className="w-4 h-4 border-2 border-purple-400 border-t-transparent rounded-full animate-spin"></div>
@@ -15,48 +15,82 @@ const Molecule3DLoader = ({ size = 100 }) => (
 
 const PropertyPredictionStep = ({ moleculesForPrediction, predictProperties, isPredicting, moleculesWithGap, showConnections }) => {
   return (
-    <div className="flex-1 flex flex-col items-center p-3 animate-fadeIn relative">
-      <h2 className="text-lg font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-2">
-        Molecules Properties Prediction
-      </h2>
-      <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-xl p-3 border border-purple-500/30 shadow-lg mb-3 w-full max-w-6xl">
-        <p className="text-gray-200 text-center text-base leading-relaxed">
-          The <span className="text-purple-400 font-semibold">Unimol model</span>, a regression model properly fine-tuned on a catalysts dataset, predicts two values: <span className="text-pink-400 font-semibold">HOMO and LUMO</span>. These orbital energies determine whether a catalyst can effectively interact with an epoxide to facilitate the cycloaddition reaction with CO2, forming cyclic carbonates. Epoxides are the substrate molecules that catalysts activate to capture CO2.
-        </p>
-      </div>
-      <div className="relative bg-gradient-to-br from-purple-900/30 to-pink-900/30 backdrop-blur-xl p-4 rounded-2xl border-2 border-purple-400/50 shadow-xl w-full max-w-6xl mx-auto">
-        <div className="flex flex-wrap justify-center gap-4">
-          {moleculesForPrediction.map((mol) => (
-            <div key={mol.uniqueId} className="relative flex flex-col items-center z-10 w-[calc(20%-1rem)]" style={{ maxWidth: '160px' }}>
-              <div className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 backdrop-blur-xl p-3 rounded-xl border-2 border-purple-400/50 shadow-lg flex items-center justify-center w-full h-28">
-                <Suspense fallback={<Molecule3DLoader size={100} />}>
-                  <MemoizedMolecule3DViewer size={100} xyz={mol.xyz} />
-                </Suspense>
-              </div>
-              <p className="text-sm text-purple-200 mt-1 text-center font-semibold truncate w-full">{mol.name}</p>
+    <div className="flex-1 flex items-center justify-center overflow-auto p-3 animate-fadeIn">
+      <div className="max-w-7xl w-full space-y-3">
+        <h3 className="text-3xl font-bold text-left mb-2 text-white">
+          Molecules Properties Prediction
+        </h3>
+        <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-xl rounded-xl p-3 border border-purple-500/30 shadow-lg mb-3">
+          <p className="text-gray-200 text-center text-base leading-relaxed">
+            The <span className="text-purple-400 font-semibold">Unimol model</span>, a regression model properly fine-tuned on a catalysts dataset, predicts two values: <span className="text-pink-400 font-semibold">HOMO and LUMO</span>. These orbital energies determine whether a catalyst can effectively interact with an epoxide to facilitate the cycloaddition reaction with CO2, forming cyclic carbonates. Epoxides are the substrate molecules that catalysts activate to capture CO2.
+          </p>
+        </div>
+
+        <div className="flex items-stretch gap-4">
+          {/* Molecole generate - sinistra */}
+          <div className="flex-1 bg-gradient-to-br from-purple-900/40 to-pink-900/40 backdrop-blur-xl rounded-xl p-4 border border-purple-500/30 shadow-lg hover:shadow-purple-500/50 transition-all duration-500 flex flex-col">
+            <div className="text-center mb-3">
+              <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-1">Generated Molecules</h3>
+              <p className="text-base text-purple-300">Candidates for prediction</p>
             </div>
-          ))}
+            <div className="flex-1 overflow-auto">
+              <div className="grid grid-cols-2 gap-3">
+                {moleculesForPrediction.map((mol) => (
+                  <div key={mol.uniqueId} className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 backdrop-blur-xl p-2 rounded-xl border-2 border-purple-400/50 shadow-lg flex flex-col items-center justify-center h-[120px]">
+                    <Suspense fallback={<Molecule3DLoader size={80} />}>
+                      <MemoizedMolecule3DViewer size={80} xyz={mol.xyz} />
+                    </Suspense>
+                    <p className="text-xl text-purple-200 mt-1 text-center font-semibold truncate w-full">{mol.name}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Freccia centrale */}
+          {showConnections && (
+            <div className="flex items-center justify-center">
+              <ArrowRight className="w-12 h-12 text-pink-400" strokeWidth={3} />
+            </div>
+          )}
+
+          {/* Modello Unimol - destra */}
+          <div className="flex-1 bg-gradient-to-br from-purple-900/40 to-pink-900/40 backdrop-blur-xl rounded-xl p-4 border border-purple-500/30 shadow-lg hover:shadow-purple-500/50 transition-all duration-500 flex flex-col">
+            <div className="flex-1 flex flex-col items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-xl rounded-xl" />
+              <div className="text-center relative z-10">
+                <div className="relative inline-block mb-3">
+                  <div className={`absolute inset-0 bg-purple-500/50 blur-2xl rounded-full ${isPredicting ? 'animate-pulse' : ''}`} />
+                </div>
+                <img src="images/unimol-logo.png" alt="Unimol Model" className="h-32 mx-auto mb-3 object-contain" />
+                <p className="text-purple-200 text-xl font-medium mb-4">Molecular Properties Predictor</p>
+                <div className="bg-purple-900/30 rounded-lg p-3 mb-4">
+                  <p className="text-xl text-purple-300 mb-2">Predicts:</p>
+                  <div className="space-y-1">
+                    <p className="text-2xl text-pink-400 font-bold">HOMO Energy</p>
+                    <p className="text-2xl text-pink-400 font-bold">LUMO Energy</p>
+                  </div>
+                </div>
+              </div>
+              <button
+                onClick={predictProperties}
+                disabled={isPredicting || moleculesWithGap.length > 0}
+                className="w-64 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 disabled:opacity-50 text-white text-xl font-bold py-3 px-4 rounded-xl transition-all transform hover:scale-105 disabled:transform-none shadow-md relative z-10"
+              >
+                {isPredicting ? (
+                  <span className="flex items-center justify-center gap-3">
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    Predicting...
+                  </span>
+                ) : moleculesWithGap.length > 0 ? (
+                  'Predicted ✓'
+                ) : (
+                  'Predict Properties'
+                )}
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-      {showConnections && (
-        <div className="flex flex-col items-center my-2">
-          <div className="flex flex-col items-center animate-bounce"><ArrowDown className="w-8 h-8 text-pink-400" strokeWidth={3} /></div>
-        </div>
-      )}
-      <div className={`relative bg-gradient-to-br from-purple-900/60 to-pink-900/60 backdrop-blur-2xl p-3 rounded-xl border-2 w-full max-w-2xl transition-all duration-500 ${isPredicting ? 'border-purple-400 shadow-lg shadow-purple-500/50 scale-105' : 'border-purple-500/40'} z-20`}>
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-xl rounded-xl" />
-        <div className="text-center relative z-10">
-          <div className="relative inline-block mb-2"><div className={`absolute inset-0 bg-purple-500/50 blur-2xl rounded-full ${isPredicting ? 'animate-pulse' : ''}`} /></div>
-          <img src="images/unimol-logo.png" alt="Unimol Model" className="h-10 mx-auto mb-1 object-contain" />
-          <p className="text-purple-200 text-base font-medium">Molecular Properties Predictor</p>
-        </div>
-        <button
-          onClick={predictProperties}
-          disabled={isPredicting || moleculesWithGap.length > 0}
-          className="w-full mt-2 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 disabled:opacity-50 text-white text-base font-bold py-2 px-3 rounded-xl transition-all transform hover:scale-105 disabled:transform-none shadow-md"
-        >
-          {isPredicting ? <span className="flex items-center justify-center gap-3"><div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />Predicting...</span> : moleculesWithGap.length > 0 ? 'Predicted ✓' : 'Predict properties'}
-        </button>
       </div>
     </div>
   );
