@@ -1,0 +1,31 @@
+services:
+  hpc_vs_co2_demo_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hpc_vs_co2_demo_app
+    ports:
+      - "3000:80"
+    volumes:
+      # Mount public assets directory
+      # Make sure to create and populate this directory before running
+      - ./public:/usr/share/nginx/html/public:ro
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    networks:
+      - hpc_vs_co2_demo_app-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://127.0.0.1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  hpc_vs_co2_demo_app-network:
+    driver: bridge
+
+# Optional: Add volumes for persistent data
+# volumes:
+#   public-data:

@@ -1,0 +1,152 @@
+[
+  {
+    "id": "combinatorial_001",
+    "name": "Salen-Cu-CH3",
+    "file": "Salen_Cu_CH3_1.xyz",
+    "type": "combinatorial",
+    "metal": "Cu",
+    "substituent": "CH3",
+    "structure": "Salen"
+  },
+  {
+    "id": "combinatorial_002",
+    "name": "Salen-Cu-CH3",
+    "file": "Salen_Cu_CH3_2.xyz",
+    "type": "combinatorial",
+    "metal": "Cu",
+    "substituent": "CH3",
+    "structure": "Salen"
+  },
+  {
+    "id": "combinatorial_003",
+    "name": "Salen-Ni-CH3",
+    "file": "Salen_Ni_CH3_1.xyz",
+    "type": "combinatorial",
+    "metal": "Ni",
+    "substituent": "CH3",
+    "structure": "Salen"
+  },
+  {
+    "id": "combinatorial_004",
+    "name": "Salen-Ni-CH3",
+    "file": "Salen_Ni_CH3_2.xyz",
+    "type": "combinatorial",
+    "metal": "Ni",
+    "substituent": "CH3",
+    "structure": "Salen"
+  },
+  {
+    "id": "combinatorial_005",
+    "name": "Salen-Cu-NO2",
+    "file": "Salen_Cu_NO2_1.xyz",
+    "type": "combinatorial",
+    "metal": "Cu",
+    "substituent": "CH3",
+    "structure": "Salen"
+  },
+  {
+    "id": "combinatorial_006",
+    "name": "Salen-Cu-NO2",
+    "file": "Salen_Cu_NO2_2.xyz",
+    "type": "combinatorial",
+    "metal": "Cu",
+    "substituent": "CH3",
+    "structure": "Salen"
+  },
+  {
+    "id": "combinatorial_007",
+    "name": "Salen-Ni-NO2",
+    "file": "Salen_Ni_NO2_1.xyz",
+    "type": "combinatorial",
+    "metal": "Ni",
+    "substituent": "CH3",
+    "structure": "Salen"
+  },
+  {
+    "id": "combinatorial_008",
+    "name": "Salen-Ni-NO2",
+    "file": "Salen_Ni_NO2_2.xyz",
+    "type": "combinatorial",
+    "metal": "Ni",
+    "substituent": "CH3",
+    "structure": "Salen"
+  },
+   {
+    "id": "combinatorial_009",
+    "name": "Salnaphen-Ni-CH3",
+    "file": "Salnaphen_Ni_CH3_1.xyz",
+    "type": "combinatorial",
+    "metal": "Ni",
+    "substituent": "CH3",
+    "structure": "Salnaphen"
+  },
+  {
+    "id": "combinatorial_010",
+    "name": "Salnaphen-Cu-NO2",
+    "file": "Salnaphen_Cu_NO2_1.xyz",
+    "type": "combinatorial",
+    "metal": "Cu",
+    "substituent": "NO2",
+    "structure": "Salnaphen"
+  },
+  {
+    "id": "AI_gen_001",
+    "name": "GenAI Mol",
+    "file": "AI1.xyz",
+    "type": "AI"
+  },
+  {
+    "id": "AI_gen_002",
+    "name": "GenAI Mol",
+    "file": "AI2.xyz",
+    "type": "AI"
+  },
+    {
+    "id": "AI_gen_003",
+    "name": "GenAI Mol",
+    "file": "AI3.xyz",
+    "type": "AI"
+  },
+  {
+    "id": "AI_gen_004",
+    "name": "GenAI Mol",
+    "file": "AI4.xyz",
+    "type": "AI"
+  },
+    {
+    "id": "AI_gen_005",
+    "name": "GenAI Mol",
+    "file": "AI5.xyz",
+    "type": "AI"
+  },
+  {
+    "id": "AI_gen_006",
+    "name": "GenAI Mol",
+    "file": "AI6.xyz",
+    "type": "AI"
+  },
+    {
+    "id": "AI_gen_007",
+    "name": "GenAI Mol",
+    "file": "AI7.xyz",
+    "type": "AI"
+  },
+  {
+    "id": "AI_gen_008",
+    "name": "GenAI Mol",
+    "file": "AI8.xyz",
+    "type": "AI"
+  },
+    {
+    "id": "AI_gen_009",
+    "name": "GenAI Mol",
+    "file": "AI9.xyz",
+    "type": "AI"
+  },
+  {
+    "id": "AI_gen_010",
+    "name": "GenAI Mol",
+    "file": "AI10.xyz",
+    "type": "AI"
+  }
+]
